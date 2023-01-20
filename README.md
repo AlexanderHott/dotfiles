@@ -25,6 +25,12 @@ home directory. That's why everything is nested 3 folders deep.
 
 ### Zsh
 
+Install the (very small) plugin manager
+
+```bash
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh)
+```
+
 Add the following line to your `/etc/zsh/zshenv`.
 
 ```zsh
