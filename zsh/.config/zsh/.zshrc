@@ -9,6 +9,8 @@ plug $ZDOTDIR/options.zsh
 plug $ZDOTDIR/aliases.zsh
 plug $ZDOTDIR/exports.zsh
 
+plug "zap-zsh/vim"
+
 # KEEP AT BOTTOM
 eval "$(starship init zsh)"
 eval "`fnm env`"

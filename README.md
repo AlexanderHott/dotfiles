@@ -12,8 +12,8 @@ git clone https://github.com/AlexanderHOtt/dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 
-stow      # To use all
-stow zsh  # To only use the zsh config
+stow zsh  # To use the zsh config
+stow */   # To use all configs
 ```
 
 [`stow`](https://www.gnu.org/software/stow/) creates a symlink relative to your

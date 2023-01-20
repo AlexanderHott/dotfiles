@@ -23,3 +23,5 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 alias j="z"
+
+alias vz="vim ~/.config/zsh/.zshrc"
