@@ -12,7 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "folke/which-key.nvim",
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup({
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            })
+        end,
+    },
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
     {
@@ -51,10 +62,21 @@ require("lazy").setup({
         branch = 'v1.x',
     },
     "github/copilot.vim",
-    { 
-        "nvim-telescope/telescope.nvim", 
-        dependencies = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" }, 
-        branch = "0.1.x" 
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+        branch = "0.1.x"
     },
-
+    "mbbill/undotree",
+    { "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+        end },
+    "lukas-reineke/indent-blankline.nvim",
+    {"folke/persistence.nvim",
+        event = "BufReadPre",
+        config = function()
+            require("persistence").setup()
+        end
+    },
 })
