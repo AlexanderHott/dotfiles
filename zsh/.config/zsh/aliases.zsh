@@ -25,3 +25,6 @@ alias ...="cd ../.."
 alias j="z"
 
 alias vz="vim ~/.config/zsh/.zshrc"
+
+alias s="source $ZDOTDIR/.zshrc"
+alias t="tmux"
