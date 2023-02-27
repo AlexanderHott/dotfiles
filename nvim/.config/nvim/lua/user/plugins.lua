@@ -68,15 +68,29 @@ require("lazy").setup({
         branch = "0.1.x"
     },
     "mbbill/undotree",
-    { "numToStr/Comment.nvim",
-        config = function()
-            require('Comment').setup()
-        end },
     "lukas-reineke/indent-blankline.nvim",
-    {"folke/persistence.nvim",
+    { "folke/persistence.nvim",
         event = "BufReadPre",
         config = function()
             require("persistence").setup()
         end
     },
-})
+    "tpope/vim-fugitive",
+    { "JoosepAlviste/nvim-ts-context-commentstring",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                context_commentstring = {
+                    enable = true
+                }
+            }
+        end,
+    },
+    { "numToStr/Comment.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "JoosepAlviste/nvim-ts-context-commentstring" } ,
+    config = function()
+        require('Comment').setup({
+            pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+        })
+    end,
+}})
