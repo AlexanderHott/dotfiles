@@ -47,3 +47,6 @@ set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<c
 set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
 
 vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+
+-- Rest.nvim
+set("n", "rr", "<Plug>RestNvim", {})
