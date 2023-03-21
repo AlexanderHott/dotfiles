@@ -40,12 +40,13 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
-            require'nvim-treesitter.configs'.setup {
-                ensure_installed = {"http", "json", "rust", "toml", "lua"}
+            require 'nvim-treesitter.configs'.setup {
+                ensure_installed = { "http", "json", "rust", "toml", "lua" }
             }
         end
     },
-    { 'VonHeikemen/lsp-zero.nvim',
+    {
+        'VonHeikemen/lsp-zero.nvim',
         dependencies = {
             -- LSP Support
             'neovim/nvim-lspconfig',
@@ -74,14 +75,16 @@ require("lazy").setup({
     },
     "mbbill/undotree",
     "lukas-reineke/indent-blankline.nvim",
-    { "folke/persistence.nvim",
+    {
+        "folke/persistence.nvim",
         event = "BufReadPre",
         config = function()
             require("persistence").setup()
         end
     },
     "tpope/vim-fugitive",
-    { "JoosepAlviste/nvim-ts-context-commentstring",
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("nvim-treesitter.configs").setup {
@@ -91,32 +94,37 @@ require("lazy").setup({
             }
         end,
     },
-    { "numToStr/Comment.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter", "JoosepAlviste/nvim-ts-context-commentstring" } ,
-    config = function()
-        require('Comment').setup({
-            pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-        })
-    end,
+    {
+        "numToStr/Comment.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "JoosepAlviste/nvim-ts-context-commentstring"
+        },
+        config = function()
+            -- require("Comment").setup()
+            require('Comment').setup({
+                pre_hook = require(
+                    'ts_context_commentstring.integrations.comment_nvim'
+                ).create_pre_hook(),
+            })
+        end,
+    },
     {
         "rest-nvim/rest.nvim",
         config = function()
             require("rest-nvim").setup({
                 -- Open request results in a horizontal split
                 result_split_horizontal = false,
-
                 -- Skip SSL verification, useful for unknown certificates
                 skip_ssl_verification = false,
-
                 -- Highlight request on run
                 highlight = {
                     enabled = true,
                     timeout = 150,
                 },
-
                 -- Jump to request line on run
                 jump_to_request = false,
             })
         end,
     },
-}})
+})
