@@ -27,4 +27,6 @@ alias j="z"
 alias vz="vim ~/.config/zsh/.zshrc"
 
 alias s="source $ZDOTDIR/.zshrc"
-alias t="tmux"
+
+alias tmux="TERM=screen-256color-bce tmux"
+alias t="TERM=screen-256color-bce tmux"
