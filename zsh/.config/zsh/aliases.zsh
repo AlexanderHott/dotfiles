@@ -16,7 +16,7 @@ alias ggraph="git log --oneline --graph"
 alias va="source ./.venv/bin/activate"
 alias vd="deactivate"
 
-alias bat="batcat"
+# alias bat="batcat"
 alias b="batcat"
 
 alias ..="cd .."

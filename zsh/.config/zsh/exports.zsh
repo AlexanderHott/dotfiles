@@ -11,5 +11,6 @@ export MANPAGER=nvim
 export STARSHIP_CONFIG=~/.config/starship.toml
 export STARSHIP_CACHE=$XDG_CACHE_HOME/starship_cache
 
-export PATH="$HOME/.local/bin:$HOME/.local/share/fnm:$PATH"
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export PATH="$CARGO_HOME/bin:$HOME/.local/bin:$HOME/.local/share/fnm:$PATH"
  
