@@ -22,6 +22,8 @@ set("x", "<leader>p", '"_dP')
 
 -- Buffers
 set("n", "<leader>x", ":bdelete<CR>")
+set("n", "<leader>h", ":bprevious<CR>")
+set("n", "<leader>l", ":bnext<CR>")
 
 -- Window navigation
 set("n", "<C-h>", "<C-w>h")
