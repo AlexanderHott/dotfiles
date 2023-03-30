@@ -16,7 +16,7 @@ alias ggraph="git log --oneline --graph"
 alias va="source ./.venv/bin/activate"
 alias vd="deactivate"
 
-alias bat="batcat"
+# alias bat="batcat"
 alias b="batcat"
 
 alias ..="cd .."
@@ -27,4 +27,6 @@ alias j="z"
 alias vz="vim ~/.config/zsh/.zshrc"
 
 alias s="source $ZDOTDIR/.zshrc"
-alias t="tmux"
+
+alias tmux="TERM=screen-256color-bce tmux"
+alias t="TERM=screen-256color-bce tmux"
