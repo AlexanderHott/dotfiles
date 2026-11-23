@@ -1,0 +1,133 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Named colors, used by the git modules. They map to your terminal's ANSI
+# colors, so the terminal theme still decides the actual shades.
+palette = "dots"
+
+[palettes.dots]
+added = "green"
+changed = "yellow"
+removed = "red"
+moved = "blue"
+muted = "bright-black"
+stash = "cyan"
+alert = "bold red"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[character]
+error_symbol = "[✖](bold red) "
+
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
+show_notifications = true  # desktop notification when a command finishes...
+min_time_to_notify = 45_000  # ...after running at least 45 sec
+
+[directory]
+truncation_length = 5
+truncation_symbol = "…/"
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"  # nf-md-lock
+repo_root_style = "bold underline cyan"  # the repo's own folder name
+# Shorten paths you visit a lot, e.g.:
+# [directory.substitutions]
+# "~/Documents/code" = "code"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "  # nf-oct-git_branch
+style = "bold purple"
+truncation_length = 32
+truncation_symbol = "…"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+tag_disabled = false
+tag_symbol = "  "  # nf-oct-tag
+
+[git_metrics]
+disabled = false
+added_style = "added"
+deleted_style = "removed"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+# Nerd Font Octicons, the icons GitHub uses for file changes.
+[git_status]
+format = "$conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind"
+conflicted = "[ $count](alert) "         # nf-oct-alert
+staged     = "[ $count](added) "         # nf-oct-diff_added
+modified   = "[ $count](changed) "       # nf-oct-diff_modified
+renamed    = "[ $count](moved) "         # nf-oct-diff_renamed
+deleted    = "[ $count](removed) "       # nf-oct-diff_removed
+untracked  = "[ $count](muted) "         # nf-oct-question
+stashed    = "[ $count](stash) "         # nf-oct-stack
+ahead      = "[ $count](bold added) "    # nf-oct-arrow_up
+behind     = "[ $count](bold removed) "  # nf-oct-arrow_down
+diverged   = "[ $ahead_count  $behind_count](bold changed) "
+
+# Username and hostname only show over SSH (or as root): ott@box
+[hostname]
+ssh_only = true
+ssh_symbol = ""
+format = "[@$hostname]($style) "
+trim_at = "-"
+style = "bold dimmed white"
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
+[package]
+disabled = true
+
+[python]
+format = '[$symbol$version( \($virtualenv\))]($style) '
+style = "bold green"
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+# Shell nesting depth, shown from 2 levels deep (e.g. bash inside bash)
+[shlvl]
+disabled = false
+symbol = " "  # nf-oct-terminal
+style = "bold yellow"
+
+# Last failed command: ERROR, NOTFOUND (127), INT (Ctrl+C), KILL...
+# For a failed pipeline, every exit code: 0|1
+[status]
+disabled = false
+format = "[$symbol$common_meaning$signal_name$maybe_int]($style) "
+symbol = ""
+pipestatus = true
+pipestatus_format = "[$pipestatus]($style) "
+pipestatus_segment_format = "$status"
+
+# Shown while sudo has your password cached
+[sudo]
+disabled = false
+format = "[$symbol]($style)"
+symbol = " "  # nf-oct-shield_lock
+style = "bold red"
+
+[username]
+format = "[$user]($style)"
+style_user = "bold dimmed blue"
+show_always = false
+
+[gcloud]
+disabled = true
