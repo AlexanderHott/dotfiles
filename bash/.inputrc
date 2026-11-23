@@ -34,6 +34,9 @@ set keymap vi-insert
 # Ctrl+Backspace deletes a word; Ctrl+Y (readline's default) pastes it back.
 # (Ctrl+Z can't do this: the terminal turns it into a suspend signal first.)
 "\C-h": backward-kill-word
+set menu-complete-display-prefix on   # first Tab: fill the common prefix and show the list
+TAB: menu-complete                    # following Tabs: cycle through the candidates
+"\e[Z": menu-complete-backward        # Shift-Tab: cycle backwards
 # Emacs-mode keys worth keeping.
 "\C-l": clear-screen
 "\C-a": beginning-of-line
