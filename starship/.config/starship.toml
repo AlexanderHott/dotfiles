@@ -28,8 +28,6 @@ error_symbol = "[✖](bold red) "
 [cmd_duration]
 min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
 format = " took [$duration]($style)"
-show_notifications = true  # desktop notification when a command finishes...
-min_time_to_notify = 45_000  # ...after running at least 45 sec
 
 [directory]
 truncation_length = 5
