@@ -1,0 +1,41 @@
+# ~/.inputrc: readline config. Applies to bash and anything else that uses
+# readline (gdb, psql, sqlite3, older python REPLs, ...).
+
+$include /etc/inputrc
+
+# Vim mode
+set editing-mode vi
+# Show the mode through the cursor shape: bar = insert, block = normal.
+set show-mode-in-prompt on
+set vi-ins-mode-string "\1\e[6 q\2"
+set vi-cmd-mode-string "\1\e[2 q\2"
+# How long to wait after Esc for a longer key sequence (default 500ms).
+set keyseq-timeout 50
+
+# Completion
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set colored-stats on
+set colored-completion-prefix on
+set mark-symlinked-directories on
+
+# Keys in normal mode
+set keymap vi-command
+# Up/Down search history for lines starting with what's already typed.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Keys in insert mode
+set keymap vi-insert
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+# Ctrl+Backspace deletes a word; Ctrl+Y (readline's default) pastes it back.
+# (Ctrl+Z can't do this: the terminal turns it into a suspend signal first.)
+"\C-h": backward-kill-word
+# Emacs-mode keys worth keeping.
+"\C-l": clear-screen
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+# Ctrl-X Ctrl-E and Esc v (edit the command in $VISUAL) are bound in ~/.bashrc.
